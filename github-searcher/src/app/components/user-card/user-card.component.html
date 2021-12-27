@@ -1,0 +1,20 @@
+<div class="card user-card" [ngClass]="!this.githubService.isDark ? 'bg-light text-black':'bg-black text-white'">
+  <div class="background text-center">
+    <img
+      [src]="user.avatar_url"
+      alt="userimage"
+      width="300"
+      height="300"
+      class="img-fluid rounded-circle profile-pic border-2"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-tilte text-center">
+      {{ user.name | uppercase}}
+    </h5>
+    <p class="card-text">BIO:{{ user.bio }}</p>
+    <p class="card-text">Company:{{ user.company }}</p>
+    <p class="card-text">Blog:{{ user.blog }}</p>
+    <p class="card-text">Updated At:{{ user.updated_at | date: "short" }}</p>
+  </div>
+</div>

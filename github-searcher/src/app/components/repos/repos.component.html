@@ -1,0 +1,13 @@
+<div
+  class="list-group border-2"
+  [ngClass]="this.githubService.isDark? 'border border-dark ' : 'border border-light'"
+  *ngFor="let repo of repos"
+>
+  <a
+    [href]="repo.html_url"
+    target="_blank"
+    class="list-group-item list-group-item-action"
+  >
+    {{ repo.name | uppercase }}
+  </a>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-firstproject-69e16": {
+      "hosting": {
+        "github-searcher": [
+          "my-firstproject-69e16"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-firstproject-69e16"
+  }
+}

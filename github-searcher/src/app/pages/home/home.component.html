@@ -1,0 +1,51 @@
+<div class="container">
+  <form
+    class="form-inline d-flex justify-content-center mt-4"
+    (ngSubmit)="handleFind()"
+  >
+    <div class="form-group mt-1">
+      <label for="userName">User Name:</label>
+      <input
+        [(ngModel)]="userName"
+        type="text"
+        id="userName"
+        class="mx-4"
+        name="userName"
+        placeholder="Enter UserName"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn mb-2"
+      [ngClass]="
+        !this.githubService.isDark ? 'btn-primary' : 'btn-info text-black'
+      "
+    >
+      Find User
+    </button>
+    <button
+      [hidden]="!(userName.length>0)"
+      class="btn mb-2 mx-2"
+      [ngClass]="
+        !this.githubService.isDark ? 'btn-secondary' : 'btn-danger text-black'
+      "
+      (click)="resetSearch()"
+    >
+      Clear
+    </button>
+  </form>
+
+  <!-- to render error -->
+  <div *ngIf="errorMsg" class="alert alert-danger m-5" role="alert">
+    {{ errorMsg }}
+  </div>
+
+  <div class="row mt-3">
+    <div class="col col-md-4">
+      <app-user-card *ngIf="user" [user]="user"></app-user-card>
+    </div>
+    <div class="col col-md-8">
+      <app-repos *ngIf="user" [repoUrl]="user.repos_url"></app-repos>
+    </div>
+  </div>
+</div>
